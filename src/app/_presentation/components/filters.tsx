@@ -1,34 +1,10 @@
-"use client";
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 interface FiltersProps {
-  onFiltersChange: (filters: Record<string, string | boolean>) => void;
-  resetPage: () => void;
+  handleFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Filters: React.FC<FiltersProps> = ({ onFiltersChange, resetPage }) => {
-  const [filters, setFilters] = useState<Record<string, string | boolean>>({});
-
-  useEffect(() => {
-    onFiltersChange(filters);
-  }, [filters, onFiltersChange]);
-
-  const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
-    setFilters((prev) => {
-      const newFilters = { ...prev, [name]: type === 'checkbox' ? checked : value };
-      if (type === 'checkbox' && !checked) {
-        delete newFilters[name];
-      }
-      if (type === 'text' && !value) {
-        delete newFilters[name];
-      }
-      return newFilters;
-    });
-    resetPage();
-  };
-
+const Filters: React.FC<FiltersProps> = ({ handleFilterChange }) => {
   return (
     <div className="mb-8">
       <div className="flex flex-wrap gap-4 mb-4">
