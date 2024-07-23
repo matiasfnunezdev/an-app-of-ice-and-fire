@@ -32,7 +32,7 @@ const parseLinkHeader = (header: string): number => {
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const page = url.searchParams.get('page') || '1';
-  url.searchParams.delete('page'); // remove page from searchParams for caching purposes
+  url.searchParams.delete('page');
   const filters = url.searchParams.toString();
   const cacheKey = `houses-page-${page}-${filters}`;
   const cachedData = getCache(cacheKey);
@@ -41,7 +41,7 @@ export async function GET(request: Request) {
     return NextResponse.json(cachedData);
   }
 
-  url.searchParams.set('page', page); // add page back to searchParams for fetching
+  url.searchParams.set('page', page);
   url.searchParams.set('pageSize', String(DEFAULT_PAGE_SIZE));
   const { houses, totalPages } = await fetchHouses(url.searchParams);
   const response = { houses, totalPages };
