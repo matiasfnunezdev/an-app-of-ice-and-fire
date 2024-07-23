@@ -1,7 +1,8 @@
 import { AxiosFetchRepository } from '@/app/_core/repositories/fetch-repository';
 import { Member, HousesResponse } from '@/app/_domain/interfaces/got';
+import { GotRepository } from '@/app/_domain/repositories/got-api-repository';
 
-export class GotAPIImplementation extends AxiosFetchRepository {
+export class GotAPIImplementation extends AxiosFetchRepository implements GotRepository {
   private baseUrl = '/api'; // Using Next.js endpoints
 
   getHouses(page: number, pageSize: number, filters: Record<string, string | boolean>): Promise<HousesResponse> {

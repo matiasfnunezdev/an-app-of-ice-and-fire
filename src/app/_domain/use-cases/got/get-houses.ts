@@ -1,14 +1,14 @@
-import { GotAPIImplementation } from '@/app/_data/repositories/got-api-implementation';
-import {HousesResponse } from '@/app/_domain/interfaces/got';
+import { HousesResponse } from '@/app/_domain/interfaces/got';
+import { GotRepository } from '../../repositories/got-api-repository';
 
 export interface GetHousesUseCase {
   invoke: (page: number, pageSize: number, filters: Record<string, string | boolean>) => Promise<HousesResponse>;
 }
 
 export class GetHouses implements GetHousesUseCase {
-  private gotAPI: GotAPIImplementation;
+  private gotAPI: GotRepository;
 
-  constructor(api: GotAPIImplementation) {
+  constructor(api: GotRepository) {
     this.gotAPI = api;
   }
 
