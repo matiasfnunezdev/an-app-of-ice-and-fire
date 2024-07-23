@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gotBlack text-white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-got text-gotGold;
+}
+
+a {
+  @apply text-gotGold;
+}
+
+.container {
+  @apply mx-auto p-4;
+}
+
+.border-rounded {
+  @apply border-gotGold rounded-lg shadow-lg p-4;
+}
