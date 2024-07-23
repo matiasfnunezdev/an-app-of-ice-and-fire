@@ -26,7 +26,7 @@ const Filters: React.FC<FiltersProps> = ({ onFiltersChange, resetPage }) => {
       }
       return newFilters;
     });
-    resetPage(); // Reset to the first page when filters change
+    resetPage();
   };
 
   return (
