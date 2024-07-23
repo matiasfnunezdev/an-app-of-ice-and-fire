@@ -66,12 +66,10 @@ This application helps fans of the epic series "A Song of Ice and Fire" by Georg
 
 - `/src`
   - `/app`
-  - `/_core`: Core functionalities such as caching and configuration.
-  - `/_data`: Data layer containing API implementations.
-  - `/_domain`: Domain-specific interfaces and types.
-  - `/_presentation`: UI components and view models.
-  - `/pages`: Next.js pages.
-  - `/styles`: Global styles.
+    - `/_core`: Core functionalities such as caching and configuration.
+    - `/_data`: Data layer containing API implementations.
+    - `/_domain`: Domain-specific interfaces and types.
+    - `/_presentation`: UI components and view models.
 
 ## Contributions
 
